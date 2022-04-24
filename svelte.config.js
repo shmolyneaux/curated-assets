@@ -11,7 +11,9 @@ const config = {
 		prerender: {
 			default: true,
 		},
-		adapter: adapter(),
+		adapter: adapter({
+			fallback: 'index.html',
+		}),
 	}
 };
 
