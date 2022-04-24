@@ -93,6 +93,8 @@ def validate_asset(*, asset_info, licenses, creators):
         "description": str,
         "tags": List[str],
         "assets": List[str],
+        "thumbnail": str,
+        "images": List[str],
         "creator_id": str,
         "sources": List[str],
         "license_id": str,

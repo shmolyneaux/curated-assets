@@ -1,5 +1,6 @@
 <script>
     export let assetPreviewUrl;
+    export let unhandledClick = () => {};
 
     let audioElement;
     let playbackProgress = 0.0;
@@ -34,11 +35,14 @@
     }
 </script>
 
-<div class="overflow-hidden hover:shadow-2xl transform hover:-translate-y-0.5 h-16 w-16 bg-gray-400 rounded-lg flex text-gray-500 hover:ring-2 active:ring-2 ring-rose-500 hover:text-rose-500 transition-all duration-200">
+<div
+    class="overflow-hidden hover:shadow-2xl transform hover:-translate-y-0.5 h-16 w-16 bg-gray-400 rounded-lg flex text-gray-500 hover:ring-2 active:ring-2 ring-rose-500 hover:text-rose-500 transition-all duration-200"
+    on:click|stopPropagation={unhandledClick}
+>
     {#if assetPreviewUrl.endsWith(".png") || assetPreviewUrl.endsWith(".jpg")}
         <img src={assetPreviewUrl} />
     {:else if assetPreviewUrl.endsWith(".ogg") || assetPreviewUrl.endsWith(".mp3")}
-        <button class="relative h-full w-full flex items-center justify-items-center justify-center" on:click={() => togglePlayback()}>
+        <button class="relative h-full w-full flex items-center justify-items-center justify-center" on:click|stopPropagation={() => togglePlayback()}>
             <audio
                 id=testThing
                 on:play={audioStarted}

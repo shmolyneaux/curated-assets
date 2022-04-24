@@ -59,7 +59,7 @@
     <div class="flex flex-col">
         {#each Object.entries(db.assets) as [asset_id, asset]}
             {#if asset.creator_id == $page.params.creator}
-                <AssetRow assetName={asset.name} downloadUrl={asset.assets[0]} tags={asset.tags} creatorId={asset.creator_id} licenseId={asset.license_id} />
+                <AssetRow {asset} />
             {/if}
         {/each}
     </div>

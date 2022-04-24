@@ -6,3 +6,7 @@ node_modules
 .env
 .env.*
 !.env.example
+asset_info/*
+creator_info/*
+license_info/*
+static/*
